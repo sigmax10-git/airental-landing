@@ -35,8 +35,8 @@ a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 48p
 .services-carousel{background:radial-gradient(circle at 78% 30%,rgba(59,130,246,.22),transparent 30%),linear-gradient(120deg,#06142e 0%,#09275b 52%,#0a1e42 100%);color:#fff;padding:95px 0;position:relative;overflow:hidden}
 .services-carousel .section-head{margin-bottom:45px}.services-carousel .kicker{color:#60a5fa}.services-carousel h2{color:#fff}.services-carousel .section-head p{color:#d5e2f7}
 .carousel{position:relative;display:flex;align-items:center;gap:16px}
-.carousel-stage{flex:1;position:relative;height:480px;perspective:1800px;transform-style:preserve-3d}
-.service-card{position:absolute;top:0;left:50%;width:62%;height:100%;padding:55px 50px;background:linear-gradient(135deg,rgba(255,255,255,.06),rgba(59,130,246,.10));border:1px solid rgba(255,255,255,.18);border-radius:26px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 35px 90px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.08);backdrop-filter:blur(6px);transition:transform .65s cubic-bezier(.4,0,.2,1),opacity .5s;transform-origin:center center;transform:translate(-50%,0) scale(.5);opacity:0;pointer-events:none;cursor:pointer}
+.carousel-stage{flex:1;position:relative;height:420px;perspective:1800px;transform-style:preserve-3d}
+.service-card{position:absolute;top:0;left:50%;width:52%;height:100%;padding:45px 40px;background:linear-gradient(135deg,rgba(255,255,255,.06),rgba(59,130,246,.10));border:1px solid rgba(255,255,255,.18);border-radius:24px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 35px 90px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.08);backdrop-filter:blur(6px);transition:transform .65s cubic-bezier(.4,0,.2,1),opacity .5s;transform-origin:center center;transform:translate(-50%,0) scale(.5);opacity:0;pointer-events:none;cursor:pointer}
 .service-card.pos-center{transform:translate(-50%,0) scale(1);opacity:1;z-index:3;pointer-events:auto;cursor:default}
 .service-card.pos-left{transform:translate(-128%,0) rotateY(38deg) scale(.78);opacity:.6;z-index:2;pointer-events:auto}
 .service-card.pos-right{transform:translate(28%,0) rotateY(-38deg) scale(.78);opacity:.6;z-index:2;pointer-events:auto}
@@ -219,7 +219,7 @@ footer{background:#06152f;color:#cbd5e1;padding:65px 0 25px}.footer-top{display:
     dots.forEach(function(d,idx){d.classList.toggle('active',idx===current)});
   }
   function go(i){current=(i+total)%total;apply()}
-  function start(){timer=setInterval(function(){go(current+1)},6000)}
+  function start(){timer=setInterval(function(){go(current+1)},10000)}
   function stop(){clearInterval(timer)}
   prev.addEventListener('click',function(){go(current-1);stop();start()});
   next.addEventListener('click',function(){go(current+1);stop();start()});

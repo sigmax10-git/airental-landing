@@ -32,8 +32,20 @@ a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 48p
 .hero-image{height:590px;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.16);box-shadow:0 35px 90px rgba(0,0,0,.45);position:relative;background:#08162e}
 .hero-image img{width:100%;height:100%;object-fit:cover;display:block}
 .hero-image:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,21,47,.6),transparent 35%);pointer-events:none}
-.trust{background:#fff;border-bottom:1px solid var(--line);padding:26px 0}.trust p{text-align:center;color:#64748b;font-weight:700;margin:0 0 16px}
-.logos{display:flex;justify-content:space-between;align-items:center;gap:24px;color:#334155;font-weight:900;font-size:18px;opacity:.72;flex-wrap:wrap}
+.services-carousel{background:radial-gradient(circle at 78% 30%,rgba(59,130,246,.22),transparent 30%),linear-gradient(120deg,#06142e 0%,#09275b 52%,#0a1e42 100%);color:#fff;padding:95px 0;position:relative;overflow:hidden}
+.services-carousel .section-head{margin-bottom:45px}.services-carousel .kicker{color:#60a5fa}.services-carousel h2{color:#fff}.services-carousel .section-head p{color:#d5e2f7}
+.carousel{position:relative;display:flex;align-items:center;gap:20px}
+.carousel-viewport{flex:1;overflow:hidden;border-radius:22px}
+.carousel-track{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1)}
+.service-card{flex:0 0 100%;padding:65px 50px;background:linear-gradient(135deg,rgba(255,255,255,.05),rgba(59,130,246,.08));border:1px solid rgba(255,255,255,.16);border-radius:22px;text-align:center;min-height:400px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 35px 90px rgba(0,0,0,.45);backdrop-filter:blur(6px)}
+.service-icon-round{width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,#3B82F6,#60a5fa);color:#fff;display:grid;place-items:center;font-size:46px;font-weight:900;margin-bottom:30px;box-shadow:0 20px 55px rgba(59,130,246,.5)}
+.service-card h3{font-size:32px;margin:0 0 16px;color:#fff;letter-spacing:-1.2px;font-weight:900}
+.service-card p{color:#d5e2f7;font-size:16px;max-width:560px;margin:0;line-height:1.75}
+.carousel-nav{width:54px;height:54px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#fff;font-size:28px;cursor:pointer;transition:.2s;display:grid;place-items:center;flex-shrink:0;line-height:1}
+.carousel-nav:hover{background:#3B82F6;border-color:#3B82F6;transform:scale(1.06)}
+.carousel-dots{display:flex;justify-content:center;gap:10px;margin-top:32px}
+.carousel-dots .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:.25s;border:none;padding:0}
+.carousel-dots .dot.active{background:#60a5fa;width:32px;border-radius:5px}
 .section{padding:105px 0}.section-head{text-align:center;max-width:720px;margin:0 auto 55px}
 .kicker{color:var(--blue);font-size:14px;font-weight:900;letter-spacing:1.5px}.section h2{font-size:42px;line-height:1.2;letter-spacing:-2px;margin:10px 0 15px}.section-head p{color:var(--muted);font-size:17px}
 .problem{background:var(--bg)}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
@@ -53,6 +65,7 @@ footer{background:#06152f;color:#cbd5e1;padding:65px 0 25px}.footer-top{display:
 }
 @media(max-width:600px){
  .container{width:min(100% - 30px,1180px)}.nav-actions .btn-outline{display:none}.hero h1{font-size:43px}.hero p{font-size:16px}.hero-image{height:300px}.cards,.solution-grid,.stats-grid{grid-template-columns:1fr}.section{padding:75px 0}.section h2,.cta h2{font-size:32px}.footer-top{grid-template-columns:1fr}.copyright{display:block}.copyright span{display:block;margin-top:8px}
+ .service-card{padding:45px 25px;min-height:340px}.service-card h3{font-size:24px}.service-card p{font-size:14px}.service-icon-round{width:88px;height:88px;font-size:36px;margin-bottom:22px}.carousel-nav{width:42px;height:42px;font-size:22px}.carousel{gap:10px}
 }
 </style>
 </head>
@@ -86,10 +99,37 @@ footer{background:#06152f;color:#cbd5e1;padding:65px 0 25px}.footer-top{display:
   </div>
 </section>
 
-<section class="trust">
+<section class="services-carousel">
   <div class="container">
-    <p>다양한 산업의 기업들이 AIRS와 함께합니다</p>
-    <div class="logos"><span>HYUNDAI</span><span>SAMSUNG</span><span>POSCO</span><span>LOTTE</span><span>DOOSAN</span><span>LS ELECTRIC</span><span>Kolmar</span></div>
+    <div class="section-head"><div class="kicker">OUR SERVICES</div><h2>AIRS가 제공하는 <span style="color:#60a5fa">3대 서비스</span></h2><p>AI 기술부터 사무 인프라, IT 서비스까지 기업 성장을 위한 통합 솔루션을 제공합니다.</p></div>
+    <div class="carousel">
+      <button class="carousel-nav prev" aria-label="이전">‹</button>
+      <div class="carousel-viewport">
+        <div class="carousel-track">
+          <div class="service-card">
+            <div class="service-icon-round">AI</div>
+            <h3>AI Full Stack Service</h3>
+            <p>기업 데이터·문서를 AI로 연결하여 의사결정과 업무 자동화를 지원합니다. 모델 구축부터 배포·운영까지 전 과정을 원스톱으로 제공합니다.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon-round">◧</div>
+            <h3>복합기 임대</h3>
+            <p>최신 복합기·프린터를 합리적인 비용으로 제공하며, 실시간 원격 모니터링으로 장애·소모품을 사전에 관리해 안정적인 사무 환경을 만듭니다.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon-round">IT</div>
+            <h3>IT 서비스</h3>
+            <p>네트워크·보안·헬프데스크부터 인프라 구축·운영까지 기업 IT 전반을 책임집니다. 전문 엔지니어의 신속한 대응으로 업무 중단 없는 환경을 지원합니다.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-nav next" aria-label="다음">›</button>
+    </div>
+    <div class="carousel-dots">
+      <button class="dot active" aria-label="1"></button>
+      <button class="dot" aria-label="2"></button>
+      <button class="dot" aria-label="3"></button>
+    </div>
   </div>
 </section>
 
@@ -154,5 +194,36 @@ footer{background:#06152f;color:#cbd5e1;padding:65px 0 25px}.footer-top{display:
     <div class="copyright"><span>© 2026 AIRS Co., Ltd. All rights reserved.</span><span>개인정보처리방침　|　이용약관</span></div>
   </div>
 </footer>
+
+<script>
+(function(){
+  var track=document.querySelector('.carousel-track');
+  var cards=document.querySelectorAll('.service-card');
+  var prev=document.querySelector('.carousel-nav.prev');
+  var next=document.querySelector('.carousel-nav.next');
+  var dots=document.querySelectorAll('.carousel-dots .dot');
+  if(!track||!cards.length)return;
+  var current=0,total=cards.length,timer=null;
+  function go(i){
+    current=(i+total)%total;
+    track.style.transform='translateX(-'+(current*100)+'%)';
+    dots.forEach(function(d,idx){d.classList.toggle('active',idx===current)});
+  }
+  function start(){timer=setInterval(function(){go(current+1)},6000)}
+  function stop(){clearInterval(timer)}
+  prev.addEventListener('click',function(){go(current-1);stop();start()});
+  next.addEventListener('click',function(){go(current+1);stop();start()});
+  dots.forEach(function(d,idx){d.addEventListener('click',function(){go(idx);stop();start()})});
+  var vp=document.querySelector('.carousel-viewport');
+  vp.addEventListener('mouseenter',stop);vp.addEventListener('mouseleave',start);
+  var sx=0;
+  vp.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+  vp.addEventListener('touchend',function(e){
+    var dx=e.changedTouches[0].clientX-sx;
+    if(Math.abs(dx)>50){go(dx<0?current+1:current-1);stop();start()}
+  });
+  start();
+})();
+</script>
 </body>
 </html>

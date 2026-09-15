@@ -4,3 +4,6 @@ Thumbs.db
 *.bak
 .vscode/
 .idea/
+design/
+index.backup-*.html
+AIRS_Landing_Page_GTP.html

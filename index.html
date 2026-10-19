@@ -149,7 +149,34 @@ h1,h2,h3,h4{margin:0;letter-spacing:-.03em;font-weight:800;line-height:1.18}
 .simple-i:not(:last-child):after{content:"";position:absolute;right:-6px;top:20px;width:9px;height:9px;
   border-top:2px solid var(--line);border-right:2px solid var(--line);transform:rotate(45deg)}
 
+/* ---------- core services ---------- */
+.core-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.core-card{border:1px solid var(--line);border-radius:14px;padding:26px;background:#fff;transition:border-color .2s,box-shadow .2s}
+.core-card:hover{border-color:#B6CDF0;box-shadow:0 10px 30px rgba(14,40,90,.07)}
+.core-card.lead{border-color:rgba(59,130,246,.38);background:var(--blue-bg)}
+.core-top{display:flex;align-items:center;gap:12px;margin-bottom:15px}
+.core-ic{width:40px;height:40px;border-radius:10px;background:var(--blue-bg);display:grid;place-items:center;flex-shrink:0}
+.core-card.lead .core-ic{background:#fff}
+.core-ic svg{width:21px;height:21px;stroke:var(--blue);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.core-n{font-size:12px;font-weight:800;color:var(--blue);letter-spacing:.1em}
+.core-card h3{font-size:17px;margin:2px 0 10px;letter-spacing:-.02em;line-height:1.35}
+.core-card p{margin:0;font-size:14px;color:var(--muted);line-height:1.68}
+
+/* ---------- document flow example ---------- */
+.flowx-banner{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:20px;
+  background:var(--blue-bg);color:var(--blue-d);font-size:13px;font-weight:700;margin-bottom:28px}
+.flowx{display:flex;align-items:stretch;gap:10px;flex-wrap:nowrap}
+.flowx-step{flex:1 1 0;min-width:0;border:1px solid var(--line);border-radius:14px;padding:22px 18px;background:#fff}
+.flowx-step .core-n{display:block;margin-bottom:10px}
+.flowx-step h3{font-size:16px;margin:0 0 8px;letter-spacing:-.02em}
+.flowx-step p{margin:0 0 12px;font-size:13.5px;color:var(--muted);line-height:1.6}
+.flowx-sample{font-size:12px;font-weight:700;color:var(--blue-d);background:var(--blue-bg);
+  border-radius:6px;padding:7px 10px;line-height:1.5}
+.flowx-arrow{display:flex;align-items:center;justify-content:center;color:var(--blue-l);font-size:20px;
+  flex:0 0 auto;font-weight:700}
+
 /* ---------- problem ---------- */
+
 .silo-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:16px}
 .silo{border:1px solid var(--line);border-radius:10px;padding:20px;background:#fff}
 .silo b{display:block;font-size:15px;font-weight:800;margin-bottom:4px}
@@ -320,12 +347,19 @@ h1,h2,h3,h4{margin:0;letter-spacing:-.03em;font-weight:800;line-height:1.18}
 .form-foot{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:30px}
 .form-foot .btn{width:100%;max-width:340px}
 .privacy{font-size:12.5px;color:var(--muted);text-align:center;margin:0}
-.form-done{display:none;text-align:center;padding:48px 20px}
+.form-done{display:none;text-align:center;padding:44px 20px}
 .form-done svg{width:52px;height:52px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-bottom:20px}
 .form-done h3{font-size:24px;margin:0 0 12px}
-.form-done p{color:var(--muted);margin:0 0 24px;font-size:15.5px}
+.form-done p{color:var(--muted);margin:0 0 20px;font-size:15.5px;text-align:left}
+.form-summary{text-align:left;background:var(--bg);border:1px solid var(--line);border-radius:10px;
+  padding:16px 18px;font-size:13px;color:var(--ink-2);line-height:1.8;white-space:pre-wrap;
+  max-height:220px;overflow:auto;margin:0 0 18px;font-family:inherit}
+.form-copy-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
 .is-done .form-body{display:none}
 .is-done .form-done{display:block}
+.f label .opt,.f-block>label .opt{color:var(--muted);font-weight:400;font-size:12.5px;margin-left:4px}
+.f-divider{margin:28px 0 20px;padding-top:22px;border-top:1px dashed var(--line);
+  font-size:13px;font-weight:700;color:var(--muted)}
 
 /* ---------- footer ---------- */
 footer{background:var(--navy);color:#94A9C6;padding:68px 0 28px;font-size:14px}
@@ -360,6 +394,10 @@ footer{background:var(--navy);color:#94A9C6;padding:68px 0 28px;font-size:14px}
     transform:translateX(-50%) rotate(135deg)}
   .ind-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .why-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
+  .core-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .flowx{flex-wrap:wrap}
+  .flowx-step{flex:1 1 220px}
+  .flowx-arrow{flex:0 0 100%;height:18px}
 }
 @media(max-width:720px){
   .container{width:calc(100% - 32px)}
@@ -382,6 +420,9 @@ footer{background:var(--navy);color:#94A9C6;padding:68px 0 28px;font-size:14px}
   .q-chip{font-size:13.5px;padding:9px 14px}
   .tl li{padding-left:50px}
   .tl b{font-size:15.5px}
+  .core-grid{grid-template-columns:1fr}
+  .flowx{flex-direction:column}
+  .flowx-arrow{transform:rotate(90deg);flex:0 0 auto;height:auto;padding:2px 0}
 }
 @media(max-width:480px){
   .silo-grid{grid-template-columns:1fr}
@@ -399,10 +440,10 @@ footer{background:var(--navy);color:#94A9C6;padding:68px 0 28px;font-size:14px}
   <div class="container nav-inner">
     <a class="logo" href="#top" aria-label="AIRS 홈"><img src="airs-logo-navy.png" alt="AIRS"></a>
     <nav class="nav-links">
+      <a href="#services">핵심 서비스</a>
       <a href="#problem">문제 정의</a>
       <a href="#solution">AIRS 솔루션</a>
       <a href="#agent">AI Agent</a>
-      <a href="#process">구축 프로세스</a>
       <a href="rental.html">복합기 임대 · IT</a>
     </nav>
     <div class="nav-cta">
@@ -420,11 +461,11 @@ footer{background:var(--navy);color:#94A9C6;padding:68px 0 28px;font-size:14px}
         <b>IN BUSAN</b><span style="opacity:.45">·</span><span>부산 울산 경남 기업 AI 파트너</span>
       </div>
       <div class="eyebrow">AI DATA &amp; AGENT PLATFORM</div>
-      <h1>기업의 모든 데이터를<br><em>AI가 이해할 수 있게.</em></h1>
-      <p class="hero-sub">ERP·MES·WMS 같은 시스템 자료부터 PDF, 엑셀, 스캔한 서류, 사진, 손글씨, 녹음까지. 회사 곳곳에 흩어진 자료를 AI가 읽을 수 있게 바꿉니다. 그래야 비로소 <strong style="color:#fff;font-weight:700">우리 회사를 아는 AI</strong>가 만들어집니다.</p>
+      <h1>생산일보부터 품질기록까지,<br><em>제조 현장의 문서를 AI 데이터로 바꿉니다.</em></h1>
+      <p class="hero-sub">손글씨 생산기록, PDF, 엑셀, 스캔 문서를 AI로 구조화하고 생산·품질 분석과 업무자동화로 연결합니다. 그래야 비로소 <strong style="color:#fff;font-weight:700">우리 회사를 아는 AI</strong>가 만들어집니다.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary btn-lg" href="#contact">우리 회사 AI 진단하기</a>
-        <a class="btn btn-ondark btn-lg" href="#solution">AIRS가 만드는 기업 AI 보기</a>
+        <a class="btn btn-primary btn-lg" href="#contact">우리 회사 AI 도입 상담</a>
+        <a class="btn btn-ondark btn-lg" href="#doc-flow">문서 AI 처리 과정 보기</a>
       </div>
       <p class="hero-note">데이터를 AI로. AI를 업무로. 업무를 성과로.</p>
     </div>
@@ -464,6 +505,99 @@ footer{background:var(--navy);color:#94A9C6;padding:68px 0 28px;font-size:14px}
       <div class="conn d3"></div>
       <div class="flow-out"><strong>의사결정 · 업무 자동화</strong></div>
     </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="container">
+    <div class="sec-head rv">
+      <div class="eyebrow">CORE SERVICES</div>
+      <h2>AIRS가 실제로 처리하는 업무</h2>
+      <p>제조 현장에서 가장 많이 쌓이고, 가장 손이 많이 가는 자료부터 순서대로 데이터로 바꿉니다.</p>
+    </div>
+    <div class="core-grid rv">
+      <div class="core-card lead">
+        <div class="core-top">
+          <div class="core-ic"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg></div>
+          <span class="core-n">01</span>
+        </div>
+        <h3>손글씨 생산일보 및 검사기록 데이터화</h3>
+        <p>현장에서 손으로 쓴 생산일보·검사기록을 사진으로 찍으면, AI가 글씨를 읽어 바로 쓸 수 있는 데이터로 정리합니다.</p>
+      </div>
+      <div class="core-card">
+        <div class="core-top">
+          <div class="core-ic"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V9z"/><path d="M14 3v6h6M9 13h6M9 17h4"/></svg></div>
+          <span class="core-n">02</span>
+        </div>
+        <h3>PDF·팩스·거래명세서 AI 처리</h3>
+        <p>거래명세서, 세금계산서, 팩스로 받은 발주서까지. 형식이 제각각이어도 항목을 구분해 자동으로 입력합니다.</p>
+      </div>
+      <div class="core-card">
+        <div class="core-top">
+          <div class="core-ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+          <span class="core-n">03</span>
+        </div>
+        <h3>기업 문서 검색 및 사내 AI</h3>
+        <p>쌓여 있는 계약서·매뉴얼·회의록을 AI에게 물어보면 바로 찾아줍니다. 사람이 다시 뒤지지 않아도 됩니다.</p>
+      </div>
+      <div class="core-card">
+        <div class="core-top">
+          <div class="core-ic"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+          <span class="core-n">04</span>
+        </div>
+        <h3>생산·품질 데이터 분석</h3>
+        <p>데이터로 바뀐 생산·검사 기록을 모아 불량 추이와 생산성 변화를 한눈에 보여줍니다.</p>
+      </div>
+      <div class="core-card">
+        <div class="core-top">
+          <div class="core-ic"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.6"/><circle cx="18" cy="6" r="2.6"/><circle cx="12" cy="18" r="2.6"/><path d="M8.2 7.3L10.3 16M15.8 7.3L13.7 16M8.6 6H15.4"/></svg></div>
+          <span class="core-n">05</span>
+        </div>
+        <h3>AI Agent 및 기존 업무시스템 연계</h3>
+        <p>정리된 데이터를 ERP·MES 같은 기존 시스템과 연결하고, 반복되는 업무는 AI Agent가 대신 처리합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="doc-flow">
+  <div class="container">
+    <div class="sec-head rv">
+      <div class="eyebrow">문서 AI 처리 과정</div>
+      <h2>문서 한 장이 데이터가 되기까지</h2>
+      <p>생산일보 한 장이 분석 가능한 데이터가 되는 과정을 예시로 보여드립니다.</p>
+    </div>
+    <div class="flowx-banner rv">※ 이해를 돕기 위한 가상의 예시입니다</div>
+    <div class="flowx rv">
+      <div class="flowx-step">
+        <span class="core-n">STEP 1</span>
+        <h3>문서 원본</h3>
+        <p>현장에서 손으로 작성한 생산일보를 사진으로 찍습니다.</p>
+        <div class="flowx-sample">예시: 생산일보 사진 1장</div>
+      </div>
+      <div class="flowx-arrow">→</div>
+      <div class="flowx-step">
+        <span class="core-n">STEP 2</span>
+        <h3>AI 인식</h3>
+        <p>손글씨와 표 안의 날짜, 품목, 수량을 AI가 읽어냅니다.</p>
+        <div class="flowx-sample">예시: 날짜 · 품목 · 수량 인식</div>
+      </div>
+      <div class="flowx-arrow">→</div>
+      <div class="flowx-step">
+        <span class="core-n">STEP 3</span>
+        <h3>구조화된 엑셀 데이터</h3>
+        <p>읽어낸 내용을 엑셀 표 형태의 데이터로 자동 정리합니다.</p>
+        <div class="flowx-sample">예시: 날짜 | 품목 | 생산량 | 불량수</div>
+      </div>
+      <div class="flowx-arrow">→</div>
+      <div class="flowx-step">
+        <span class="core-n">STEP 4</span>
+        <h3>분석 결과</h3>
+        <p>쌓인 데이터로 생산량 추이와 불량 패턴을 보여줍니다.</p>
+        <div class="flowx-sample">예시: 품목별 불량률 비교</div>
+      </div>
+    </div>
+    <p class="note">※ 위 과정은 이해를 돕기 위한 가상의 예시이며, 실제 고객 데이터나 수치가 아닙니다. 실제 적용 시 문서 형식과 처리 속도는 현장 상황에 따라 달라질 수 있습니다.</p>
   </div>
 </section>
 
@@ -929,21 +1063,29 @@ footer{background:var(--navy);color:#94A9C6;padding:68px 0 28px;font-size:14px}
         </div>
         <div class="f-row">
           <div class="f">
-            <label for="position">직책</label>
-            <input type="text" id="position" name="position" autocomplete="organization-title">
-          </div>
-          <div class="f">
             <label for="phone">연락처<span class="req">*</span></label>
             <input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="010-0000-0000">
           </div>
+          <div class="f">
+            <label for="email">이메일<span class="opt">(선택)</span></label>
+            <input type="email" id="email" name="email" autocomplete="email">
+          </div>
         </div>
+
+        <div class="f">
+          <label for="message">해결하고 싶은 업무 문제<span class="req">*</span></label>
+          <textarea id="message" name="message" required placeholder="예: 손으로 쓰는 생산일보를 엑셀로 옮기는 데 시간이 너무 오래 걸려요."></textarea>
+        </div>
+
+        <p class="f-divider">아래는 알려주시면 더 정확하게 도와드릴 수 있는 선택 항목입니다</p>
+
         <div class="f-row">
           <div class="f">
-            <label for="email">이메일<span class="req">*</span></label>
-            <input type="email" id="email" name="email" required autocomplete="email">
+            <label for="position">직책<span class="opt">(선택)</span></label>
+            <input type="text" id="position" name="position" autocomplete="organization-title">
           </div>
           <div class="f">
-            <label for="industry">업종</label>
+            <label for="industry">업종<span class="opt">(선택)</span></label>
             <select id="industry" name="industry">
               <option value="">선택해 주세요</option>
               <option>제조업</option>
@@ -959,7 +1101,7 @@ footer{background:var(--navy);color:#94A9C6;padding:68px 0 28px;font-size:14px}
         </div>
         <div class="f-row">
           <div class="f">
-            <label for="size">직원 수</label>
+            <label for="size">직원 수<span class="opt">(선택)</span></label>
             <select id="size" name="size">
               <option value="">선택해 주세요</option>
               <option>50명 미만</option>
@@ -972,7 +1114,7 @@ footer{background:var(--navy);color:#94A9C6;padding:68px 0 28px;font-size:14px}
         </div>
 
         <div class="f-block">
-          <label>현재 사용 중인 시스템</label>
+          <label>현재 사용 중인 시스템<span class="opt">(선택)</span></label>
           <div class="checks">
             <label class="check"><input type="checkbox" name="systems" value="ERP">ERP</label>
             <label class="check"><input type="checkbox" name="systems" value="MES">MES</label>
@@ -984,7 +1126,7 @@ footer{background:var(--navy);color:#94A9C6;padding:68px 0 28px;font-size:14px}
         </div>
 
         <div class="f-block">
-          <label>현재 가장 해결하고 싶은 문제</label>
+          <label>관심 있는 영역<span class="opt">(선택)</span></label>
           <div class="checks">
             <label class="check"><input type="checkbox" name="needs" value="문서 자동화">문서 자동화</label>
             <label class="check"><input type="checkbox" name="needs" value="OCR / 데이터 추출">OCR / 데이터 추출</label>
@@ -999,21 +1141,21 @@ footer{background:var(--navy);color:#94A9C6;padding:68px 0 28px;font-size:14px}
           </div>
         </div>
 
-        <div class="f">
-          <label for="message">문의 내용</label>
-          <textarea id="message" name="message" placeholder="현재 겪고 계신 문제나 궁금한 점을 자유롭게 남겨 주세요."></textarea>
-        </div>
-
         <div class="form-foot">
           <button type="submit" class="btn btn-primary btn-lg">우리 회사 AI 진단 신청</button>
-          <p class="privacy">제출하신 정보는 AI 진단 및 상담 목적으로만 사용되며, 그 외 용도로 활용되지 않습니다.</p>
+          <p class="privacy">자동 접수 시스템은 아직 연결되어 있지 않습니다. 제출하시면 작성하신 내용이 담긴 이메일 작성 화면이 열립니다. 입력하신 정보는 AI 진단 및 상담 목적으로만 사용됩니다.</p>
         </div>
       </form>
 
       <div class="form-done" id="formDone" role="status" aria-live="polite">
         <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
-        <h3>진단 신청이 접수되었습니다.</h3>
-        <p>담당자가 영업일 기준 1~2일 이내에 연락드리겠습니다.<br>빠른 상담이 필요하시면 <a href="mailto:contact@airental.co.kr" style="color:var(--blue);font-weight:600">contact@airental.co.kr</a> 로 연락 주세요.</p>
+        <h3>메일 작성 화면이 열립니다</h3>
+        <p>아직 자동 접수 시스템이 연결되어 있지 않아, 입력하신 내용은 이메일로 전달됩니다. 열린 메일 프로그램에서 내용을 확인하시고 보내기를 눌러주셔야 문의가 완료됩니다.<br><br>메일 프로그램이 열리지 않았다면, 아래 내용을 복사해 <a href="mailto:contact@airental.co.kr" style="color:var(--blue);font-weight:600">contact@airental.co.kr</a> 로 직접 보내주세요.</p>
+        <pre class="form-summary" id="formSummary"></pre>
+        <div class="form-copy-row">
+          <button type="button" class="btn btn-ghost" id="formCopy">내용 복사하기</button>
+          <a class="btn btn-ghost" id="formMailFallback" href="mailto:contact@airental.co.kr">메일 다시 열기</a>
+        </div>
         <button type="button" class="btn btn-ghost" id="formReset">다시 작성하기</button>
       </div>
     </div>
@@ -1031,9 +1173,10 @@ footer{background:var(--navy);color:#94A9C6;padding:68px 0 28px;font-size:14px}
       <div class="f-col">
         <h4>AI 플랫폼</h4>
         <a href="#solution">AI Data Layer</a>
-        <a href="#solution">문서 AI · OCR</a>
+        <a href="#services">문서 AI · OCR</a>
         <a href="#compare">Enterprise RAG</a>
         <a href="#agent">AI Agent</a>
+        <a href="#process">구축 프로세스</a>
       </div>
       <div class="f-col">
         <h4>서비스</h4>
@@ -1072,61 +1215,108 @@ footer{background:var(--navy);color:#94A9C6;padding:68px 0 28px;font-size:14px}
     items.forEach(function(el){ el.classList.add('in'); });
   }
 
-  /* lead form */
+  /* lead form
+     이 사이트는 백엔드 서버가 없는 정적 페이지입니다. 자동 접수 시스템이
+     구축되기 전까지, 제출한 내용은 이메일(mailto)로 전달하는 방식으로
+     동작합니다 — 성공 메시지를 거짓으로 보여주지 않기 위한 조치입니다.
+     나중에 실제 접수 API가 생기면 아래 submit 핸들러 안에서 fetch로
+     전송하고, formDone의 안내 문구를 "접수되었습니다"로 교체하면 됩니다. */
   var form = document.getElementById('leadForm');
   var wrap = document.getElementById('formWrap');
   var reset = document.getElementById('formReset');
-  if (!form) return;
+  var summaryEl = document.getElementById('formSummary');
+  var copyBtn = document.getElementById('formCopy');
+  var mailFallback = document.getElementById('formMailFallback');
+  var CONTACT_EMAIL = 'contact@airental.co.kr';
 
-  /* 백엔드 연결 지점 — API 엔드포인트를 지정하면 그쪽으로 POST 합니다. */
-  var ENDPOINT = '';
+  var FIELD_LABELS = {
+    company: '회사명', name: '담당자명', phone: '연락처', email: '이메일',
+    message: '해결하고 싶은 업무 문제', position: '직책', industry: '업종',
+    size: '직원 수', systems: '현재 사용 중인 시스템', needs: '관심 있는 영역'
+  };
+  var FIELD_ORDER = ['company', 'name', 'phone', 'email', 'message',
+    'position', 'industry', 'size', 'systems', 'needs'];
 
-  function collect(){
-    var fd = new FormData(form), out = {};
-    fd.forEach(function(v, k){
-      if (out[k] === undefined) out[k] = v;
-      else if (Array.isArray(out[k])) out[k].push(v);
-      else out[k] = [out[k], v];
-    });
-    out.submittedAt = new Date().toISOString();
-    return out;
-  }
-
-  form.addEventListener('submit', function(ev){
-    ev.preventDefault();
-    if (!form.reportValidity()) return;
-
-    var btn = form.querySelector('button[type="submit"]');
-    var payload = collect();
-    btn.disabled = true;
-    btn.textContent = '전송 중…';
-
-    function done(){
-      wrap.classList.add('is-done');
-      wrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      btn.disabled = false;
-      btn.textContent = '우리 회사 AI 진단 신청';
+  if (form) {
+    function collect(){
+      var fd = new FormData(form), out = {};
+      fd.forEach(function(v, k){
+        if (out[k] === undefined) out[k] = v;
+        else if (Array.isArray(out[k])) out[k].push(v);
+        else out[k] = [out[k], v];
+      });
+      return out;
     }
 
-    if (!ENDPOINT) { done(); return; }
+    function buildSummary(payload){
+      var lines = ['[AI 진단 신청]', ''];
+      FIELD_ORDER.forEach(function(key){
+        var v = payload[key];
+        if (!v || (Array.isArray(v) && v.length === 0)) return;
+        if (Array.isArray(v)) v = v.join(', ');
+        lines.push(FIELD_LABELS[key] + ': ' + v);
+      });
+      return lines.join('\n');
+    }
 
-    fetch(ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    }).then(done).catch(function(){
-      btn.disabled = false;
-      btn.textContent = '우리 회사 AI 진단 신청';
-      alert('전송에 실패했습니다. 잠시 후 다시 시도하시거나 contact@airental.co.kr 로 연락 주세요.');
-    });
-  });
+    function buildMailto(payload, summary){
+      var subject = 'AI 진단 신청 - ' + (payload.company || '회사명 미입력');
+      return 'mailto:' + CONTACT_EMAIL
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(summary);
+    }
 
-  if (reset) {
-    reset.addEventListener('click', function(){
-      form.reset();
-      wrap.classList.remove('is-done');
-      wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    form.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      if (!form.reportValidity()) return;
+
+      var payload = collect();
+      var summary = buildSummary(payload);
+      var mailtoUrl = buildMailto(payload, summary);
+
+      if (summaryEl) summaryEl.textContent = summary;
+      if (mailFallback) mailFallback.href = mailtoUrl;
+
+      wrap.classList.add('is-done');
+      wrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      window.location.href = mailtoUrl;
     });
+
+    if (copyBtn) {
+      copyBtn.addEventListener('click', function(){
+        var text = summaryEl ? summaryEl.textContent : '';
+        function flash(){
+          var original = copyBtn.textContent;
+          copyBtn.textContent = '복사됨';
+          setTimeout(function(){ copyBtn.textContent = original; }, 1500);
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(flash).catch(function(){
+            alert('복사에 실패했습니다. 내용을 직접 선택해 복사해 주세요.');
+          });
+        } else {
+          var ta = document.createElement('textarea');
+          ta.value = text;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.focus();
+          ta.select();
+          try { document.execCommand('copy'); flash(); }
+          catch (e) { alert('복사에 실패했습니다. 내용을 직접 선택해 복사해 주세요.'); }
+          document.body.removeChild(ta);
+        }
+      });
+    }
+
+    if (reset) {
+      reset.addEventListener('click', function(){
+        form.reset();
+        wrap.classList.remove('is-done');
+        wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
   }
 })();
 </script>

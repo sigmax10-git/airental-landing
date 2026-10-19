@@ -97,7 +97,7 @@ h1,h2,h3,h4{margin:0;letter-spacing:-.03em;font-weight:800;line-height:1.18}
   background-size:64px 64px;
   -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 20%,transparent 75%);
   mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 20%,transparent 75%)}
-.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,46fr) minmax(0,54fr);
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,52fr) minmax(0,48fr);
   gap:clamp(40px,5vw,72px);align-items:center}
 .hero .eyebrow{color:var(--blue-l)}
 .hero-badge{display:inline-flex;align-items:center;gap:7px;padding:7px 15px;border-radius:20px;
@@ -106,7 +106,9 @@ h1,h2,h3,h4{margin:0;letter-spacing:-.03em;font-weight:800;line-height:1.18}
 .hero-badge svg{width:14px;height:14px;stroke:#60a5fa;fill:none;stroke-width:2;
   stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
 .hero-badge b{font-weight:800;letter-spacing:.09em}
-.hero h1{font-size:clamp(34px,4.6vw,60px);letter-spacing:-.04em;line-height:1.14;margin:18px 0 22px}
+.hero h1{font-size:clamp(32px,3.6vw,44px);letter-spacing:-.035em;line-height:1.2;margin:20px 0 22px}
+.h1-br{display:none}
+@media(min-width:1001px){.h1-br{display:inline}}
 .hero h1 em{font-style:normal;color:var(--blue-l)}
 .hero-sub{font-size:clamp(16px,1.25vw,18px);color:#C6D4E8;margin:0 0 34px;max-width:540px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
@@ -458,14 +460,13 @@ footer{background:var(--navy);color:#94A9C6;padding:68px 0 28px;font-size:14px}
     <div class="hero-copy">
       <div class="hero-badge">
         <svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1116 0z"/><circle cx="12" cy="10" r="2.6"/></svg>
-        <b>IN BUSAN</b><span style="opacity:.45">·</span><span>부산 울산 경남 기업 AI 파트너</span>
+        <b>IN BUSAN</b><span style="opacity:.45">·</span><span>기업 AI 데이터 플랫폼</span>
       </div>
-      <div class="eyebrow">AI DATA &amp; AGENT PLATFORM</div>
-      <h1>생산일보부터 품질기록까지,<br><em>제조 현장의 문서를 AI 데이터로 바꿉니다.</em></h1>
-      <p class="hero-sub">손글씨 생산기록, PDF, 엑셀, 스캔 문서를 AI로 구조화하고 생산·품질 분석과 업무자동화로 연결합니다. 그래야 비로소 <strong style="color:#fff;font-weight:700">우리 회사를 아는 AI</strong>가 만들어집니다.</p>
+      <h1>흩어진 기업 데이터를 연결해<br class="h1-br"> <em>우리 회사를 이해하는 AI를 만듭니다.</em></h1>
+      <p class="hero-sub">ERP·MES·WMS부터 PDF·엑셀·이메일·현장 문서까지. AIRS는 기업 곳곳에 흩어진 데이터를 연결하고 업무 맥락을 구축해, <strong style="color:#fff;font-weight:700">기업 맞춤형 AI와 업무자동화</strong>로 이어갑니다.</p>
       <div class="hero-actions">
         <a class="btn btn-primary btn-lg" href="#contact">우리 회사 AI 도입 상담</a>
-        <a class="btn btn-ondark btn-lg" href="#doc-flow">문서 AI 처리 과정 보기</a>
+        <a class="btn btn-ondark btn-lg" href="#services">핵심 서비스 알아보기</a>
       </div>
       <p class="hero-note">데이터를 AI로. AI를 업무로. 업무를 성과로.</p>
     </div>
@@ -1173,7 +1174,7 @@ footer{background:var(--navy);color:#94A9C6;padding:68px 0 28px;font-size:14px}
       <div class="f-col">
         <h4>AI 플랫폼</h4>
         <a href="#solution">AI Data Layer</a>
-        <a href="#services">문서 AI · OCR</a>
+        <a href="#doc-flow">문서 AI · OCR</a>
         <a href="#compare">Enterprise RAG</a>
         <a href="#agent">AI Agent</a>
         <a href="#process">구축 프로세스</a>

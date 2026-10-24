@@ -94,13 +94,11 @@ h1,h2,h3,h4{margin:0;letter-spacing:-.03em;font-weight:800;line-height:1.18}
   padding:clamp(64px,7vw,96px) 0 clamp(72px,8vw,104px)}
 .hero:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
   background-image:linear-gradient(var(--navy-line) 1px,transparent 1px),linear-gradient(90deg,var(--navy-line) 1px,transparent 1px);
-  background-size:64px 64px;
+  background-size:38px 38px;
   -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 20%,transparent 75%);
   mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 20%,transparent 75%)}
 .hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,52fr) minmax(0,48fr);
   gap:clamp(40px,5vw,72px);align-items:center}
-.hero-bridge{position:absolute;left:0;top:clamp(30px,2.8vw,44px);width:50%;min-width:620px;
-  height:auto;z-index:1;pointer-events:none;user-select:none;opacity:.75}
 .hero .eyebrow{color:var(--blue-l)}
 .hero-badge{display:inline-flex;align-items:center;gap:7px;padding:7px 15px;border-radius:20px;
   border:1px solid rgba(96,165,250,.42);background:rgba(59,130,246,.15);color:#BFDBFE;
@@ -481,7 +479,6 @@ footer{background:var(--navy);color:#94A9C6;padding:68px 0 28px;font-size:14px}
 </header>
 
 <section class="hero" id="top">
-  <img class="hero-bridge" src="bridge.svg" alt="" aria-hidden="true" width="1300" height="176">
   <div class="container hero-inner">
     <div class="hero-copy">
       <div class="hero-badge">

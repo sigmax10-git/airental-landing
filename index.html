@@ -304,6 +304,25 @@ h1,h2,h3,h4{margin:0;letter-spacing:-.03em;font-weight:800;line-height:1.18}
   font-size:13px;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
 .tl b{font-size:16.5px;font-weight:700;letter-spacing:-.02em}
 
+/* ---------- customer reference ---------- */
+.client{display:flex;align-items:center;gap:clamp(20px,3vw,38px);
+  border:1px solid var(--line);border-radius:16px;background:#fff;
+  padding:clamp(24px,3vw,32px) clamp(24px,3.5vw,38px);margin-bottom:clamp(40px,5vw,60px)}
+.client-logo{flex:0 0 auto;padding-right:clamp(20px,3vw,38px);border-right:1px solid var(--line);
+  display:grid;place-items:center}
+.client-logo img{width:clamp(152px,15vw,200px);height:auto;display:block}
+.client-copy{flex:1;min-width:0}
+.client-copy h3{font-size:18px;margin:0 0 7px;letter-spacing:-.02em}
+.client-copy p{margin:0;font-size:15px;color:var(--muted);line-height:1.65}
+.client-lead{font-size:16px!important;font-weight:700;color:var(--ink)!important;margin:0 0 6px!important}
+.client .btn{flex:0 0 auto}
+.client-tag{display:inline-block;margin-left:8px;padding:4px 10px;border-radius:5px;vertical-align:2px;
+  background:var(--blue-bg);color:var(--blue-d);font-size:11.5px;font-weight:800;letter-spacing:.02em}
+.client-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.chip-s{display:inline-flex;padding:5px 11px;border-radius:5px;font-size:12.5px;font-weight:600;
+  background:var(--bg);color:var(--ink-2);border:1px solid var(--line)}
+.sub-head{font-size:19px;margin:0 0 20px;letter-spacing:-.025em}
+
 /* ---------- case studies ---------- */
 .case-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .case-c{border:1px solid var(--line);border-radius:14px;padding:28px;background:#fff}
@@ -423,6 +442,10 @@ footer{background:var(--navy);color:#94A9C6;padding:68px 0 28px;font-size:14px}
   .tl li{padding-left:50px}
   .tl b{font-size:15.5px}
   .core-grid{grid-template-columns:1fr}
+  .client{flex-direction:column;align-items:flex-start;gap:20px}
+  .client-logo{padding-right:0;border-right:0;padding-bottom:18px;
+    border-bottom:1px solid var(--line);width:100%;place-items:start}
+  .client .btn{width:100%}
   .flowx{flex-direction:column}
   .flowx-arrow{transform:rotate(90deg);flex:0 0 auto;height:auto;padding:2px 0}
 }
@@ -991,10 +1014,27 @@ footer{background:var(--navy);color:#94A9C6;padding:68px 0 28px;font-size:14px}
 <section class="section" id="cases">
   <div class="container">
     <div class="sec-head rv">
-      <div class="eyebrow">USE CASES</div>
-      <h2>적용 예시</h2>
-      <p>업종마다 시작점은 다르지만 구조는 같습니다. 흩어진 데이터를 AI가 읽을 수 있게 만들고, 기존 시스템에 연결합니다.</p>
+      <div class="eyebrow">CUSTOMERS</div>
+      <h2>고객 사례</h2>
+      <p>현재 운영 중인 고객사와, 업종별로 AIRS가 적용하는 방식의 예시입니다.</p>
     </div>
+
+    <div class="client rv">
+      <div class="client-logo"><img src="cuckoo-logo.svg" alt="쿠쿠전자" width="229" height="29" loading="lazy"></div>
+      <div class="client-copy">
+        <h3>쿠쿠전자 <span class="client-tag">AI 도입 · 운영 중</span></h3>
+        <p class="client-lead">쿠쿠전자와 AIRS가 함께 AI를 도입해 운영하고 있습니다.</p>
+        <p>고객 응대와 AS 접수 업무에서, 사람이 일일이 보고 입력하던 일을 AI가 처리합니다.</p>
+        <div class="client-chips">
+          <span class="chip-s">이미지·영상 분석</span>
+          <span class="chip-s">문서 자동 입력</span>
+          <span class="chip-s">기존 시스템 연계</span>
+        </div>
+      </div>
+      <a class="btn btn-primary" href="#contact">우리 회사도 상담받기</a>
+    </div>
+
+    <h3 class="sub-head rv">업종별 적용 예시</h3>
     <div class="case-grid rv">
       <div class="case-c">
         <span class="tag">제조기업</span>
@@ -1027,7 +1067,7 @@ footer{background:var(--navy);color:#94A9C6;padding:68px 0 28px;font-size:14px}
         </ol>
       </div>
     </div>
-    <p class="note">위 내용은 AIRS가 적용하는 구축 방식의 예시입니다. 실제 도입 사례는 고객사 협의 후 공개됩니다.</p>
+    <p class="note">위 세 가지는 AIRS의 구축 방식을 설명하기 위한 예시이며, 특정 고객사의 실제 사례가 아닙니다. 상세 도입 내용은 고객사 협의 후 공개됩니다.</p>
   </div>
 </section>
 

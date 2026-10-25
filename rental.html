@@ -83,8 +83,35 @@ h1,h2,h3,h4{margin:0;letter-spacing:-.03em;font-weight:800;line-height:1.18}
   display:grid;place-items:center;padding:clamp(36px,5vw,64px);min-height:320px}
 .svc-visual svg{width:min(230px,70%);height:auto;stroke:var(--blue);fill:none;
   stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.svc-visual picture{display:block;line-height:0}
-.svc-visual img.mfp{width:auto;height:clamp(230px,31vw,344px);max-width:100%;display:block}
+.mfp-visual{display:block;padding:clamp(28px,3.6vw,44px) clamp(20px,2.6vw,34px)}
+.mfp-carousel{position:relative;width:100%}
+.mfp-stage{position:relative;height:clamp(230px,29vw,310px);perspective:1200px;
+  transform-style:preserve-3d}
+.mfp-card{position:absolute;left:50%;top:0;height:100%;margin:0;display:flex;
+  flex-direction:column;align-items:center;justify-content:flex-start;gap:9px;
+  transform-origin:center center;transform:translate(-50%,0) scale(.5);opacity:0;
+  pointer-events:none;transition:transform .62s cubic-bezier(.4,0,.2,1),opacity .5s}
+.mfp-card picture{display:block;line-height:0;height:calc(100% - 26px)}
+.mfp-card img{height:100%;width:auto;display:block}
+.mfp-card figcaption{font-size:12.5px;font-weight:700;color:var(--muted);white-space:nowrap}
+.mfp-card.pos-center{transform:translate(-50%,0) scale(1);opacity:1;z-index:3;pointer-events:auto}
+.mfp-card.pos-left{transform:translate(-120%,0) rotateY(36deg) scale(.72);opacity:.45;
+  z-index:2;pointer-events:auto;cursor:pointer}
+.mfp-card.pos-right{transform:translate(20%,0) rotateY(-36deg) scale(.72);opacity:.45;
+  z-index:2;pointer-events:auto;cursor:pointer}
+.mfp-card.pos-left:hover,.mfp-card.pos-right:hover{opacity:.7}
+.mfp-nav{position:absolute;top:calc(50% - 13px);transform:translateY(-50%);z-index:5;
+  width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:#fff;
+  color:var(--ink-2);font-size:20px;line-height:1;display:grid;place-items:center;
+  cursor:pointer;font-family:inherit;transition:border-color .18s,color .18s,background .18s}
+.mfp-nav:hover{border-color:var(--blue);color:var(--blue)}
+.mfp-nav.prev{left:0}
+.mfp-nav.next{right:0}
+.mfp-dots{display:flex;gap:7px;justify-content:center;margin-top:16px}
+.mfp-dots button{width:7px;height:7px;padding:0;border:none;border-radius:50%;
+  background:#C7D4E6;cursor:pointer;transition:.22s}
+.mfp-dots button.on{background:var(--blue);width:20px;border-radius:4px}
+.mfp-note{margin:12px 0 0;text-align:center;font-size:12.5px;color:var(--muted)}
 .svc-copy h2{font-size:clamp(25px,2.8vw,36px);margin:14px 0 18px}
 .svc-copy > p{font-size:16.5px;color:var(--muted);margin:0 0 26px}
 .feat{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px}
@@ -180,12 +207,71 @@ footer{background:var(--navy);color:#94A9C6;padding:56px 0 26px;font-size:14px}
   <div class="container">
 
     <div class="svc rv">
-      <div class="svc-visual">
-        <picture>
-          <source srcset="mfp.webp" type="image/webp">
-          <img class="mfp" src="mfp.png" width="413" height="600"
-               alt="A3 컬러 복합기" loading="lazy" decoding="async">
-        </picture>
+      <div class="svc-visual mfp-visual">
+        <div class="mfp-carousel">
+          <button class="mfp-nav prev" type="button" aria-label="이전 디자인">‹</button>
+          <div class="mfp-stage" id="mfpStage">
+            <figure class="mfp-card">
+              <picture>
+                <source srcset="mfp-1.webp" type="image/webp">
+                <img src="mfp-1.png" alt="기본형 외장 A3 복합기" width="358" height="520"
+                     loading="lazy" decoding="async">
+              </picture>
+              <figcaption>기본형</figcaption>
+            </figure>
+            <figure class="mfp-card">
+              <picture>
+                <source srcset="mfp-2.webp" type="image/webp">
+                <img src="mfp-2.png" alt="사이버펑크 외장 A3 복합기" width="358" height="520"
+                     loading="lazy" decoding="async">
+              </picture>
+              <figcaption>사이버펑크</figcaption>
+            </figure>
+            <figure class="mfp-card">
+              <picture>
+                <source srcset="mfp-3.webp" type="image/webp">
+                <img src="mfp-3.png" alt="조선 · 중공업 외장 A3 복합기" width="358" height="520"
+                     loading="lazy" decoding="async">
+              </picture>
+              <figcaption>조선 · 중공업</figcaption>
+            </figure>
+            <figure class="mfp-card">
+              <picture>
+                <source srcset="mfp-4.webp" type="image/webp">
+                <img src="mfp-4.png" alt="자동차 외장 A3 복합기" width="358" height="520"
+                     loading="lazy" decoding="async">
+              </picture>
+              <figcaption>자동차</figcaption>
+            </figure>
+            <figure class="mfp-card">
+              <picture>
+                <source srcset="mfp-5.webp" type="image/webp">
+                <img src="mfp-5.png" alt="캐릭터 외장 A3 복합기" width="358" height="520"
+                     loading="lazy" decoding="async">
+              </picture>
+              <figcaption>캐릭터</figcaption>
+            </figure>
+            <figure class="mfp-card">
+              <picture>
+                <source srcset="mfp-6.webp" type="image/webp">
+                <img src="mfp-6.png" alt="메카닉 외장 A3 복합기" width="358" height="520"
+                     loading="lazy" decoding="async">
+              </picture>
+              <figcaption>메카닉</figcaption>
+            </figure>
+            <figure class="mfp-card">
+              <picture>
+                <source srcset="mfp-7.webp" type="image/webp">
+                <img src="mfp-7.png" alt="건축 · 설계 외장 A3 복합기" width="358" height="520"
+                     loading="lazy" decoding="async">
+              </picture>
+              <figcaption>건축 · 설계</figcaption>
+            </figure>
+          </div>
+          <button class="mfp-nav next" type="button" aria-label="다음 디자인">›</button>
+        </div>
+        <div class="mfp-dots" id="mfpDots"></div>
+        <p class="mfp-note">기기 외장 디자인 적용 예시</p>
       </div>
       <div class="svc-copy">
         <div class="eyebrow">복합기 임대</div>
@@ -348,6 +434,69 @@ footer{background:var(--navy);color:#94A9C6;padding:56px 0 26px;font-size:14px}
   } else {
     items.forEach(function(el){ el.classList.add('in'); });
   }
+
+  /* 복합기 외장 디자인 캐러셀 */
+  var stage = document.getElementById('mfpStage');
+  if (!stage) return;
+  var cards = [].slice.call(stage.querySelectorAll('.mfp-card'));
+  var dotsWrap = document.getElementById('mfpDots');
+  var prev = document.querySelector('.mfp-nav.prev');
+  var next = document.querySelector('.mfp-nav.next');
+  var total = cards.length;
+  var current = 0;
+  var timer = null;
+
+  var dots = cards.map(function(_, i){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', (i + 1) + '번째 디자인');
+    b.addEventListener('click', function(){ go(i); restart(); });
+    dotsWrap.appendChild(b);
+    return b;
+  });
+
+  function rel(i){
+    var d = i - current;
+    if (d > total / 2) d -= total;
+    if (d < -total / 2) d += total;
+    return d;
+  }
+
+  function apply(){
+    cards.forEach(function(c, i){
+      c.classList.remove('pos-left', 'pos-center', 'pos-right');
+      var d = rel(i);
+      if (d === 0) c.classList.add('pos-center');
+      else if (d === -1) c.classList.add('pos-left');
+      else if (d === 1) c.classList.add('pos-right');
+    });
+    dots.forEach(function(b, i){ b.classList.toggle('on', i === current); });
+  }
+
+  function go(i){ current = (i + total) % total; apply(); }
+  function start(){ timer = setInterval(function(){ go(current + 1); }, 4000); }
+  function stop(){ clearInterval(timer); }
+  function restart(){ stop(); start(); }
+
+  prev.addEventListener('click', function(){ go(current - 1); restart(); });
+  next.addEventListener('click', function(){ go(current + 1); restart(); });
+  cards.forEach(function(c, i){
+    c.addEventListener('click', function(){
+      if (!c.classList.contains('pos-center')) { go(i); restart(); }
+    });
+  });
+  stage.addEventListener('mouseenter', stop);
+  stage.addEventListener('mouseleave', start);
+
+  var sx = 0;
+  stage.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; }, { passive: true });
+  stage.addEventListener('touchend', function(e){
+    var dx = e.changedTouches[0].clientX - sx;
+    if (Math.abs(dx) > 45) { go(dx < 0 ? current + 1 : current - 1); restart(); }
+  });
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { apply(); }
+  else { apply(); start(); }
 })();
 </script>
 </body>

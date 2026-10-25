@@ -394,6 +394,20 @@ footer{background:var(--navy);color:#94A9C6;padding:68px 0 28px;font-size:14px}
 .f-bot{border-top:1px solid var(--navy-line);padding-top:24px;display:flex;justify-content:space-between;gap:16px;
   flex-wrap:wrap;font-size:12.5px;color:#68809F}
 
+/* ---------- 방문자 카운터 ---------- */
+.visits{position:fixed;z-index:90;display:none;align-items:center;gap:7px;
+  top:calc(68px + 10px);right:max(14px,calc((100% - 1200px) / 2));
+  padding:5px 12px;border-radius:14px;line-height:1;
+  background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(8px);
+  border:1px solid var(--line);box-shadow:0 2px 10px rgba(14,32,57,.07);
+  font-size:11.5px;color:var(--muted);pointer-events:none;user-select:none}
+.visits.on{display:flex}
+.visits b{font-weight:700;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.visits i{font-style:normal;opacity:.4}
+@media(max-width:720px){
+  .visits{top:calc(68px + 7px);right:10px;padding:4px 9px;gap:5px;font-size:10.5px}
+}
+
 /* ---------- scroll reveal ---------- */
 .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
 .rv.in{opacity:1;transform:none}
@@ -477,6 +491,11 @@ footer{background:var(--navy);color:#94A9C6;padding:68px 0 28px;font-size:14px}
     </div>
   </div>
 </header>
+
+<div class="visits" id="visits" aria-live="off">
+  <span>오늘 <b id="visitToday">0</b></span><i>/</i><span>전체 <b id="visitTotal">0</b></span>
+</div>
+
 
 <section class="hero" id="top">
   <div class="container hero-inner">
@@ -1376,6 +1395,34 @@ footer{background:var(--navy);color:#94A9C6;padding:68px 0 28px;font-size:14px}
       });
     }
   }
+})();
+
+/* ---------- 방문자 카운터 ----------
+   정적 페이지라 방문 수는 서버에 기록해야 한다. 아래 VISIT_API 에 주소를
+   넣으면 카운터가 켜진다. 비워 두면 아무것도 표시하지 않는다
+   (실제 수치가 없는데 숫자를 보여주지 않기 위함).
+
+   엔드포인트 규칙: GET 한 번에 방문을 1 증가시키고 아래 형태로 응답한다.
+     { "today": 12, "total": 3456 }
+   CORS 로 이 도메인에서의 요청을 허용해야 한다.                            */
+(function(){
+  var VISIT_API = '';
+
+  if (!VISIT_API) return;
+  var box = document.getElementById('visits');
+  var elToday = document.getElementById('visitToday');
+  var elTotal = document.getElementById('visitTotal');
+  if (!box || !elToday || !elTotal) return;
+
+  fetch(VISIT_API, { credentials: 'omit' })
+    .then(function(r){ return r.ok ? r.json() : Promise.reject(r.status); })
+    .then(function(d){
+      if (typeof d.today !== 'number' || typeof d.total !== 'number') return;
+      elToday.textContent = d.today.toLocaleString('ko-KR');
+      elTotal.textContent = d.total.toLocaleString('ko-KR');
+      box.classList.add('on');
+    })
+    .catch(function(){ /* 실패하면 조용히 숨긴 채로 둔다 */ });
 })();
 </script>
 </body>

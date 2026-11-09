@@ -151,6 +151,18 @@ h1,h2,h3,h4{margin:0;letter-spacing:-.03em;font-weight:800;line-height:1.18}
 .simple-i:not(:last-child):after{content:"";position:absolute;right:-6px;top:20px;width:9px;height:9px;
   border-top:2px solid var(--line);border-right:2px solid var(--line);transform:rotate(45deg)}
 
+/* ---------- office band ---------- */
+.band{background:var(--navy);border-bottom:1px solid var(--line)}
+.band figure{margin:0}
+.band picture{display:block}
+.band img{display:block;width:100%;height:clamp(240px,26vw,420px);object-fit:cover;object-position:center 42%}
+.band figcaption{width:min(1200px,calc(100% - 48px));margin:0 auto;
+  padding:13px 0 15px;font-size:12.5px;color:#8FA3C0;text-align:right;letter-spacing:-.01em}
+@media(max-width:720px){
+  .band img{height:210px;object-position:58% 45%}
+  .band figcaption{text-align:left;font-size:12px}
+}
+
 /* ---------- core services ---------- */
 .core-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 .core-card{border:1px solid var(--line);border-radius:14px;padding:26px;background:#fff;transition:border-color .2s,box-shadow .2s}
@@ -673,6 +685,17 @@ footer{background:var(--navy);color:#94A9C6;padding:68px 0 28px;font-size:14px}
       </div>
     </div>
   </div>
+</section>
+
+<section class="band" aria-label="AIRS 업무 현장">
+  <figure>
+    <picture>
+      <source srcset="office-band.webp" type="image/webp">
+      <img src="office-band.jpg" alt="부산 사무실에서 AIRS 담당자와 고객사 담당자가 문서 AI 처리 화면을 함께 보며 논의하는 모습"
+           width="1670" height="716" loading="lazy" decoding="async">
+    </picture>
+    <figcaption>이미지는 서비스 이해를 돕기 위한 연출 예시입니다.</figcaption>
+  </figure>
 </section>
 
 <section class="section" id="problem">

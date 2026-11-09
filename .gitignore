@@ -7,3 +7,15 @@ Thumbs.db
 design/
 index.backup-*.html
 AIRS_Landing_Page_GTP.html
+
+# 제안 자료 빌드 (공개 사이트에 올리지 않음)
+.mk_deck.py
+.copy.txt
+.deckpreview/
+AIRS_제안자료.pptx
+AIRS_제안자료.pdf
+cuckoo-logo.png
+AIRS_logo_bg-sq-white.jpg
+
+# 교차 링크 전환 스크립트 (공개 사이트에 올리지 않음)
+.swap-crosslinks.py

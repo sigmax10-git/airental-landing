@@ -1261,11 +1261,11 @@ footer{background:var(--navy);color:#94A9C6;padding:68px 0 28px;font-size:14px}
       <div class="form-done" id="formDone" role="status" aria-live="polite">
         <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
         <h3>메일 작성 화면이 열립니다</h3>
-        <p>아직 자동 접수 시스템이 연결되어 있지 않아, 입력하신 내용은 이메일로 전달됩니다. 열린 메일 프로그램에서 내용을 확인하시고 보내기를 눌러주셔야 문의가 완료됩니다.<br><br>메일 프로그램이 열리지 않았다면, 아래 내용을 복사해 <a href="mailto:contact@airental.co.kr" style="color:var(--blue);font-weight:600">contact@airental.co.kr</a> 로 직접 보내주세요.</p>
+        <p>아직 자동 접수 시스템이 연결되어 있지 않아, 입력하신 내용은 이메일로 전달됩니다. 열린 메일 프로그램에서 내용을 확인하시고 보내기를 눌러주셔야 문의가 완료됩니다.<br><br>메일 프로그램이 열리지 않았다면, 아래 내용을 복사해 <a href="mailto:airental@airental.co.kr" style="color:var(--blue);font-weight:600">airental@airental.co.kr</a> 로 직접 보내주세요.</p>
         <pre class="form-summary" id="formSummary"></pre>
         <div class="form-copy-row">
           <button type="button" class="btn btn-ghost" id="formCopy">내용 복사하기</button>
-          <a class="btn btn-ghost" id="formMailFallback" href="mailto:contact@airental.co.kr">메일 다시 열기</a>
+          <a class="btn btn-ghost" id="formMailFallback" href="mailto:airental@airental.co.kr">메일 다시 열기</a>
         </div>
         <button type="button" class="btn btn-ghost" id="formReset">다시 작성하기</button>
       </div>
@@ -1298,10 +1298,10 @@ footer{background:var(--navy);color:#94A9C6;padding:68px 0 28px;font-size:14px}
       </div>
       <div class="f-col">
         <h4>문의</h4>
-        <a href="mailto:contact@airental.co.kr">contact@airental.co.kr</a>
+        <a href="mailto:airental@airental.co.kr">airental@airental.co.kr</a>
         <a href="#contact">AI 진단 신청</a>
-        <span>부산광역시</span>
-        <span>평일 09:00 ~ 18:00</span>
+        <span>위치 : 부산광역시 동구 초량동<br>부산광역시 남구 용호동</span>
+        <span>평일 09:00 ~ 17:00</span>
       </div>
     </div>
     <div class="f-bot">
@@ -1338,7 +1338,7 @@ footer{background:var(--navy);color:#94A9C6;padding:68px 0 28px;font-size:14px}
   var summaryEl = document.getElementById('formSummary');
   var copyBtn = document.getElementById('formCopy');
   var mailFallback = document.getElementById('formMailFallback');
-  var CONTACT_EMAIL = 'contact@airental.co.kr';
+  var CONTACT_EMAIL = 'airental@airental.co.kr';
 
   var FIELD_LABELS = {
     company: '회사명', name: '담당자명', phone: '연락처', email: '이메일',

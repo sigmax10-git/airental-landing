@@ -92,14 +92,27 @@ h1,h2,h3,h4{margin:0;letter-spacing:-.03em;font-weight:800;line-height:1.18}
 /* ---------- hero ---------- */
 .hero{background:var(--navy);color:#fff;position:relative;overflow:hidden;
   padding:0 0 clamp(72px,8vw,104px)}
-/* 히어로 최상단 이미지. 아래쪽을 네이비로 서서히 녹여 히어로와 이어 붙인다 */
-.hero-band{position:relative;z-index:2;margin-bottom:clamp(40px,4.6vw,66px)}
-.hero-band img{display:block;width:100%;height:clamp(190px,20vw,300px);
-  object-fit:cover;object-position:center 44%}
+/* 히어로 최상단 이미지. 두 장을 3초씩 번갈아 보여주고,
+   아래쪽을 네이비로 서서히 녹여 히어로와 이어 붙인다 */
+.hero-band{position:relative;z-index:2;margin-bottom:clamp(40px,4.6vw,66px);
+  height:clamp(190px,20vw,300px);background:var(--navy);overflow:hidden}
+.hero-band picture{position:absolute;inset:0;display:block}
+.hero-band img{display:block;width:100%;height:100%;object-fit:cover}
+.hero-band .s1 img{object-position:center 44%}
+.hero-band .s2 img{object-position:center 12%}
+/* 두 번째 장만 페이드. 3초 노출 + 0.6초 전환 = 한 바퀴 7.2초 */
+.hero-band .s2{opacity:0;animation:bandfade 7.2s ease-in-out infinite}
+@keyframes bandfade{
+  0%,41.7%{opacity:0}
+  50%,91.7%{opacity:1}
+  100%{opacity:0}
+}
 .hero-band:after{content:"";position:absolute;left:0;right:0;bottom:0;height:42%;
   pointer-events:none;background:linear-gradient(to bottom,rgba(14,32,57,0) 0%,rgba(14,32,57,.55) 55%,var(--navy) 100%)}
 @media(max-width:720px){
-  .hero-band img{height:170px;object-position:58% 45%}
+  .hero-band{height:170px}
+  .hero-band .s1 img{object-position:58% 45%}
+  .hero-band .s2 img{object-position:50% 50%}
 }
 .hero:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
   background-image:linear-gradient(var(--navy-line) 1px,transparent 1px),linear-gradient(90deg,var(--navy-line) 1px,transparent 1px);
@@ -508,10 +521,14 @@ footer{background:var(--navy);color:#94A9C6;padding:68px 0 28px;font-size:14px}
 
 <section class="hero" id="top">
   <div class="hero-band">
-    <picture>
+    <picture class="s1">
       <source srcset="office-band.webp" type="image/webp">
       <img src="office-band.jpg" alt="부산 사무실에서 AIRS 담당자와 고객사 담당자가 문서 AI 처리 화면을 함께 보며 논의하는 모습"
            width="1670" height="716" fetchpriority="high" decoding="async">
+    </picture>
+    <picture class="s2">
+      <source srcset="office-band2.webp" type="image/webp">
+      <img src="office-band2.jpg" alt="" width="1672" height="651" decoding="async">
     </picture>
   </div>
 
